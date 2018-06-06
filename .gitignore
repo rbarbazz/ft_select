@@ -1,0 +1,5 @@
+*.o
+*.a
+*.swp
+*dSYM*
+ft_select
