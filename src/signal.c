@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 17:58:01 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 11:13:22 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:03:49 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		sig_handler(int signo)
 		sig_winch();
 	else if (signo == SIGTSTP)
 	{
-		vsusp[0] = (*get_term_setting())->c_cc[VSUSP];
+		vsusp[0] = (*get_term_setting()).c_cc[VSUSP];
 		vsusp[1] = 0;
 		exec_term_command("ve");
 		exec_term_command("te");

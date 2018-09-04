@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:08:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 11:14:38 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 13:53:12 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int			main(int argc, char **argv)
 		if (g_data->param_line > 0)
 			print_list();
 		buffer = 0;
-		read(STDIN_FILENO, &buffer, sizeof(long));
+		if (read(STDIN_FILENO, &buffer, sizeof(long)) < 0)
+			free_exit();
 		if (!move_cursor(buffer) || !select_param(buffer) || \
 		!remove_param(buffer))
 			get_curr_param();

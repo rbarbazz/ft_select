@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:51:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 11:12:46 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 13:41:45 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void				get_coordinates(void);
 */
 
 int					apply_term_setting(int def);
-struct termios		**get_term_setting(void);
+struct termios		*get_term_setting(void);
 void				exec_term_command(const char *code);
 void				exec_term_command_p(const char *code, int p1, int p2);
 
