@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 14:40:47 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 11:12:50 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:15:38 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			free_exit(void)
 	signal(SIGHUP, SIG_DFL);
 	signal(SIGTSTP, SIG_DFL);
 	if (apply_term_setting(1))
-		exit(1);
+		exit(EXIT_FAILURE);
 	close(g_data->fd);
 	free_data();
 	exit(0);

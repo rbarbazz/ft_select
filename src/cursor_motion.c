@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/29 19:22:02 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/06 16:35:08 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:14:37 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		move_down(void)
 		g_data->y = 0;
 	}
 	else if (g_data->y != g_data->y_max && !(g_data->size_lst % \
-		g_data->param_line))
+	g_data->param_line))
 		g_data->y--;
 	else if (g_data->y == g_data->y_max || (g_data->y == (g_data->y_max + 1) \
 	&& (g_data->x > (g_data->size_lst % g_data->param_line) - 1)))
@@ -85,7 +85,7 @@ static void		move_up(void)
 		g_data->y = g_data->y_max;
 	}
 	else if (!g_data->y && (g_data->x > (g_data->size_lst % \
-		g_data->param_line)))
+	g_data->param_line)))
 	{
 		g_data->x--;
 		g_data->y = g_data->y_max + 1;

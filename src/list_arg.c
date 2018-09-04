@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 14:23:55 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/29 17:49:35 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:18:36 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static t_param	*mk_head(char *name)
 
 	if (!(new = (t_param*)ft_memalloc(sizeof(t_param))))
 		return (NULL);
-	new->name = ft_strdup(name);
+	if (!(new->name = ft_strdup(name)))
+		return (NULL);
 	new->size = ft_strlen(name);
 	g_data->size_max = new->size;
 	new->select = 0;
@@ -37,7 +38,8 @@ static t_param	*add_elem(t_param *param, char *name)
 		tmp = tmp->next;
 	if (!(new = (t_param*)ft_memalloc(sizeof(t_param))))
 		return (NULL);
-	new->name = ft_strdup(name);
+	if (!(new->name = ft_strdup(name)))
+		return (NULL);
 	new->size = ft_strlen(name);
 	if (new->size > g_data->size_max)
 		g_data->size_max = new->size;
@@ -64,9 +66,11 @@ t_param			*mk_list(char **argv)
 	int		i;
 
 	i = 0;
-	param = mk_head(argv[++i]);
+	if (!(param = mk_head(argv[++i])))
+		return (NULL);
 	i++;
 	while (argv[i])
-		param = add_elem(param, argv[i++]);
+		if (!(param = add_elem(param, argv[i++])))
+			return (NULL);
 	return (param);
 }

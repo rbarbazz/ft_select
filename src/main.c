@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:08:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 13:53:12 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:20:10 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	init_data(int argc, char **argv)
 {
 	g_data->size_lst = argc - 1;
 	ioctl(g_data->fd, TIOCGWINSZ, &g_data->sz);
-	g_data->head = mk_list(argv);
+	if (!(g_data->head = mk_list(argv)))
+		return (1);
 	g_data->tail = get_tail(g_data->head);
 	param_by_line();
 	if (!g_data->param_line)
