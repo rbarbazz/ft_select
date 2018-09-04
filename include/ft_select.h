@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:51:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 13:41:45 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 15:53:51 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				print_selection(void);
 int					select_param(long buffer);
 int					move_cursor(long buffer);
 void				move_right(void);
-int					remove_param(long buffer);
+int					rm_param(long buffer);
 void				get_curr_param(void);
 
 /*

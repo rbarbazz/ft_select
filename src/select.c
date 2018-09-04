@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/04 13:43:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 10:51:36 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 15:47:04 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void		print_selection(void)
 		{
 			ft_printf("%s", tmp->name);
 			i++;
+			if (i < count)
+				ft_printf(" ");
 		}
-		if (i < count)
-			ft_printf(" ");
 		tmp = tmp->next;
 	}
 }

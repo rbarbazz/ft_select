@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 18:19:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 11:13:06 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 15:54:15 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	get_new_datas(void)
 	get_coordinates();
 }
 
-int			remove_param(long buffer)
+int			rm_param(long buffer)
 {
 	t_param	*tmp;
 	int		i;
