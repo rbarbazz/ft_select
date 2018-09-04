@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:08:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/14 14:18:21 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:14:38 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ static int	init_data(int argc, char **argv)
 	g_data->tail = get_tail(g_data->head);
 	param_by_line();
 	if (!g_data->param_line)
-	{
-		exec_term_command("cl");
 		ft_dprintf(g_data->fd, "T\no\no\n\nS\nm\na\nl\nl\n");
-	}
 	else
 		get_coordinates();
 	g_data->curr_param = 0;
@@ -81,8 +78,9 @@ int			main(int argc, char **argv)
 		else if (buffer == 10)
 		{
 			print_selection();
-			break ;
+			free_exit();
 		}
 	}
-	return (free_exit());
+	exec_term_command("te");
+	free_exit();
 }

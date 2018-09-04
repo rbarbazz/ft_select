@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 18:19:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/03 18:57:50 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:13:06 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int			remove_param(long buffer)
 			tmp = tmp->next;
 		if (!tmp->prev && !tmp->next)
 		{
+			exec_term_command("te");
 			free_exit();
-			exit(0);
 		}
 		else if (!tmp->prev)
 			remove_first(tmp);

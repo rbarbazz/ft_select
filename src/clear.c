@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 14:40:47 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/10 18:31:27 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:12:50 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ static void		free_data(void)
 	ft_memdel((void**)&g_data);
 }
 
-int				free_exit(void)
+void			free_exit(void)
 {
 	exec_term_command("ve");
-	exec_term_command("te");
 	signal(SIGWINCH, SIG_DFL);
 	signal(SIGTERM, SIG_DFL);
 	signal(SIGINT, SIG_DFL);
@@ -38,8 +37,8 @@ int				free_exit(void)
 	signal(SIGHUP, SIG_DFL);
 	signal(SIGTSTP, SIG_DFL);
 	if (apply_term_setting(1))
-		return (1);
+		exit(1);
 	close(g_data->fd);
 	free_data();
-	return (0);
+	exit(0);
 }

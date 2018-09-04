@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:51:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/06/06 20:15:43 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:12:46 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct		s_data
 extern				t_data	*g_data;
 
 void				sig_handler(int signo);
-int					free_exit(void);
+void				free_exit(void);
 
 void				print_list(void);
 void				print_selection(void);

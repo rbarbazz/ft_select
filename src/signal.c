@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 17:58:01 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/14 14:06:43 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:13:22 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,5 @@ void		sig_handler(int signo)
 	else if (signo == SIGCONT)
 		sig_cont();
 	else
-	{
 		free_exit();
-		exit(1);
-	}
 }

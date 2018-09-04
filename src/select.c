@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/04 13:43:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/07 18:35:00 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 10:51:36 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		print_selection(void)
 	tmp = g_data->head;
 	count = count_selected();
 	i = 0;
-	exec_term_command("cl");
+	exec_term_command("te");
 	while (tmp)
 	{
 		if (tmp->select)
