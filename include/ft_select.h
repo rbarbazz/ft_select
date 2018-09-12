@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:51:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 15:53:51 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:45:22 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_data
 	int				size_max;
 	int				size_lst;
 	int				param_line;
+	int				line_count;
 	int				curr_param;
 	int				x;
 	int				x_max;
@@ -42,6 +43,7 @@ typedef struct		s_data
 	int				y_max;
 	struct winsize	sz;
 	int				fd;
+	int				disabled;
 	t_param			*head;
 	t_param			*tail;
 }					t_data;

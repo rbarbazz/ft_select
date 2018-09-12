@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 17:19:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/06 17:59:59 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:49:16 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void		param_by_line(void)
 	g_data->param_line = g_data->sz.ws_col / (g_data->size_max + 1);
 	if (g_data->param_line > g_data->size_lst)
 		g_data->param_line = g_data->size_lst;
+	if (g_data->param_line)
+	{
+		if (!g_data->size_lst % g_data->param_line)
+			g_data->line_count = g_data->size_lst / g_data->param_line;
+		else
+			g_data->line_count = (g_data->size_lst / g_data->param_line) + 1;
+	}
 }
 
 void		new_size_max(void)

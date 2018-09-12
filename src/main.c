@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:08:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 15:54:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:58:51 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@ t_data		*g_data;
 
 static int	init_data(int argc, char **argv)
 {
+	g_data->disabled = 0;
 	g_data->size_lst = argc - 1;
 	ioctl(g_data->fd, TIOCGWINSZ, &g_data->sz);
 	if (!(g_data->head = mk_list(argv)))
 		return (1);
 	g_data->tail = get_tail(g_data->head);
 	param_by_line();
-	if (!g_data->param_line)
-		ft_dprintf(g_data->fd, "T\no\no\n\nS\nm\na\nl\nl\n");
+	if (!g_data->param_line || g_data->line_count > g_data->sz.ws_row)
+	{
+		ft_dprintf(g_data->fd, "Too Small\no\no\n\nS\nm\na\nl\nl\n");
+		g_data->disabled = 1;
+	}
 	else
 		get_coordinates();
 	g_data->curr_param = 0;
@@ -67,20 +71,20 @@ int			main(int argc, char **argv)
 		return (1);
 	while (1)
 	{
-		if (g_data->param_line > 0)
+		if (!g_data->disabled)
 			print_list();
 		buffer = 0;
 		if (read(STDIN_FILENO, &buffer, sizeof(long)) < 0)
 			free_exit();
-		if (!move_cursor(buffer) || !select_param(buffer) || !rm_param(buffer))
-			get_curr_param();
-		else if (buffer == 27)
+		if (buffer == 27)
 			break ;
+		else if (g_data->disabled)
+			g_data->disabled = 1;
+		else if (!move_cursor(buffer) || !select_param(buffer) ||\
+		!rm_param(buffer))
+			get_curr_param();
 		else if (buffer == 10)
-		{
 			print_selection();
-			free_exit();
-		}
 	}
 	exec_term_command("te");
 	free_exit();

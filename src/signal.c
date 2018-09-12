@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 17:58:01 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 14:03:49 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:54:01 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ static void	sig_winch(void)
 {
 	ioctl(g_data->fd, TIOCGWINSZ, &g_data->sz);
 	param_by_line();
-	if (!g_data->param_line)
+	if (!g_data->param_line || g_data->line_count > g_data->sz.ws_row)
 	{
 		exec_term_command("cl");
-		ft_dprintf(g_data->fd, "T\no\no\n\nS\nm\na\nl\nl\n");
+		ft_dprintf(g_data->fd, "Too Small\no\no\n\nS\nm\na\nl\nl\n");
+		g_data->disabled = 1;
 	}
 	else
 	{
+		g_data->disabled = 0;
 		get_coordinates();
 		get_curr_param();
 		print_list();
@@ -39,13 +41,15 @@ static void	sig_cont(void)
 	g_data->fd = open(ttyname(STDIN_FILENO), O_WRONLY);
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &g_data->sz);
 	param_by_line();
-	if (!g_data->param_line)
+	if (!g_data->param_line || g_data->line_count > g_data->sz.ws_row)
 	{
 		exec_term_command("cl");
-		ft_dprintf(g_data->fd, "T\no\no\n\nS\nm\na\nl\nl\n");
+		ft_dprintf(g_data->fd, "Too Small\no\no\n\nS\nm\na\nl\nl\n");
+		g_data->disabled = 1;
 	}
 	else
 	{
+		g_data->disabled = 0;
 		get_coordinates();
 		get_curr_param();
 		print_list();
